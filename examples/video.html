@@ -14,7 +14,7 @@
 	<style>
 	/* Style for our header texts
 	* --------------------------------------- */
-	h1{
+	h1 {
 		font-size: 5em;
 		font-family: arial,helvetica;
 		color: #fff;
@@ -23,11 +23,10 @@
 	}
 	/* Centered texts in each section
 	* --------------------------------------- */
-	.section{
+	.section {
 		text-align:center;
-		overflow: hidden;
 	}
-	#myVideo{
+	.section video {
 		position: absolute;
 		right: 0;
 		bottom: 0;
@@ -45,7 +44,7 @@
 	}
 	/* Layer with position absolute in order to have it over the video
 	* --------------------------------------- */
-	#section0 .layer{
+	.section .layer {
 		position: absolute;
 		z-index: 4;
 		width: 100%;
@@ -60,7 +59,7 @@
 		transform: translate3d(0,0,0);
 	}
 	/*solves problem with overflowing video in Mac with Chrome */
-	#section0{
+	.section {
 		overflow: hidden;
 	}
 	/* Hiding video controls
@@ -80,13 +79,10 @@
 <body>
 
 <div id="fullpage">
-	<div class="section " id="section0">
-		<!-- 				style="background-image: url('https://coubsecure-s.akamaihd.net/get/b86/p/coub/simple/cw_image/f8ff7686066/3293655fff82d2332ed4f/med_1550249384_00024.jpg')"
-	       
- -->
+	<div class="section" id="section0">
 		<video 
-			id="myVideo" 
 			loop muted playsinline data-autoplay 
+			style="background-image: url('https://coubsecure-s.akamaihd.net/get/b86/p/coub/simple/cw_image/f8ff7686066/3293655fff82d2332ed4f/med_1550249384_00024.jpg')"
 			poster="https://coubsecure-s.akamaihd.net/get/b86/p/coub/simple/cw_image/f8ff7686066/3293655fff82d2332ed4f/med_1550249384_00024.jpg"
 			src="https://zcoubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_file/f6e7ad8814a/772d4cb64a33d4d6b3d9f/gifv_1550249371_252728805_gifv.mp4"
 		"></video>
@@ -95,7 +91,7 @@
 			src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_looped_audio/2f1322d499d/1f488772c1c36c0873706/med_1550249372_med.mp3"
 		></audio>
 		<div class="layer">
-			<h1>fullPage.js videos!2</h1>
+			<h1>fullPage.js videos!3</h1>
 		</div>
 	</div>
 	<div class="section" id="section1">
@@ -110,8 +106,7 @@
 
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
-        verticalCentered: true,
-        sectionsColor: ['#00ffff', '#4BBFC3', '#7BAABE']
+        verticalCentered: true
     });
 </script>
 
