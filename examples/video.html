@@ -36,11 +36,11 @@
 		width: 100%;
 		height: 100%;
 		background-size: 100% 100%;
- 		background-color: black; /* in case the video doesn't fit the whole page*/
-  		background-image: "https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_file/f6e7ad8814a/772d4cb64a33d4d6b3d9f/gifv_1550249371_252728805_gifv.mp4";
+ 		background-color: #007aff; /* in case the video doesn't fit the whole page*/
   		background-position: center center;
-  		background-size: contain;
+  		background-size: cover;
    		object-fit: cover; /*cover video background */
+		background-repeat: no-repeat;
    		z-index:3;
 	}
 	/* Layer with position absolute in order to have it over the video
@@ -63,11 +63,6 @@
 	#section0{
 		overflow: hidden;
 	}
-	/* Bottom menu
-	* --------------------------------------- */
-	#infoMenu li a {
-		color: #fff;
-	}
 	/* Hiding video controls
 	* See: https://css-tricks.com/custom-controls-in-html5-video-full-screen/
 	* --------------------------------------- */
@@ -86,14 +81,20 @@
 
 <div id="fullpage">
 	<div class="section " id="section0">
-		<video id="myVideo" loop muted playsinline data-autoplay>
-			<source src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_file/f6e7ad8814a/772d4cb64a33d4d6b3d9f/gifv_1550249371_252728805_gifv.mp4" type="video/mp4">
-		</video>
-    		<audio loop data-autoplay>
-          		<source src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_looped_audio/2f1322d499d/1f488772c1c36c0873706/med_1550249372_med.mp3" type="audio/mpeg">
-      		</audio>
+		<!-- 		       poster="https://coubsecure-s.akamaihd.net/get/b86/p/coub/simple/cw_image/f8ff7686066/3293655fff82d2332ed4f/med_1550249384_00024.jpg"
+ -->
+		<video 
+			id="myVideo" 
+			loop muted playsinline data-autoplay 
+			style="background-image: url('https://coubsecure-s.akamaihd.net/get/b86/p/coub/simple/cw_image/f8ff7686066/3293655fff82d2332ed4f/med_1550249384_00024.jpg')"
+			src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_file/f6e7ad8814a/772d4cb64a33d4d6b3d9f/gifv_1550249371_252728805_gifv.mp4"
+		"></video>
+    		<audio 
+			loop data-autoplay
+			src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_looped_audio/2f1322d499d/1f488772c1c36c0873706/med_1550249372_med.mp3"
+		></audio>
 		<div class="layer">
-			<h1>fullPage.js videos!!</h1>
+			<h1>fullPage.js videos!!!</h1>
 		</div>
 	</div>
 	<div class="section" id="section1">
@@ -109,7 +110,7 @@
 <script type="text/javascript">
     var myFullpage = new fullpage('#fullpage', {
         verticalCentered: true,
-        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE']
+        sectionsColor: ['#00ffff', '#4BBFC3', '#7BAABE']
     });
 </script>
 
