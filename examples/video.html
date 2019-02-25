@@ -17,25 +17,27 @@
 		font-family: "Montserrat", Helvetica, sans-serif;
 		text-transform: none;
 		line-height: 1.3;
-		font-weight: normal;
+		font-weight: bolder;
 		font-size: 4em;
 		background-color: yellow;
 		color: black;
 		margin:0;
 		padding:0;
+		display: inline;
 	}
 	p {
 		font-family: "Montserrat", Helvetica, sans-serif;
 		text-transform: none;
 		line-height: 1.5;
-		font-weight: normal;
+		font-weight: bolder;
 		font-size: 3em;
 		color: white;
 		margin:0;
 		padding:0;	
+		display:inline;
 	}
 	.section {
-		text-align:center;
+		text-align: left;
 		background-color: #007aff;
 	}
 	.section video {
@@ -69,6 +71,10 @@
 		-webkit-transform: translate3d(0,0,0);
 		-ms-transform: translate3d(0,0,0);
 		transform: translate3d(0,0,0);
+		
+		/* hack */
+		max-width: 600px;
+		left:43%
 	}
 	/*solves problem with overflowing video in Mac with Chrome */
 	.section {
@@ -91,7 +97,11 @@
 <body>
 
 <div id="fullpage">
-	<div class="section"><h1>7 Principles To Mastering Growth Marketing</h1></div>
+	<div class="section">
+		<div class="layer">
+			<h1>7 Principles To Mastering Growth Marketing</h1>
+		</div>
+	</div>
 	<div class="section">
 		<video 
 			loop muted playsinline data-autoplay 
@@ -108,10 +118,14 @@
 		</div>
 	</div>
 	<div class="section">
-		<p>Master the Fundamentals: Data Analysis, Quantitative Modeling, User Psychology, Storytelling.</p>
+		<div class="layer">
+			<p>Master the Fundamentals: Data Analysis, Quantitative Modeling, User Psychology, Storytelling.</p>
+		</div>
 	</div>
 	<div class="section">
-		<p>Then Go Deep, because “Being “ok” at a variety of things, is far less valuable than being amazing at one.”</p>
+		<div class="layer">
+			<p>Then Go Deep, because “Being “ok” at a variety of things, is far less valuable than being amazing at one.”</p>
+		</div>
 	</div>
 	
 	<div class="section">
@@ -130,7 +144,9 @@
 		</div>
 	</div>
 	<div class="section">
-		<p>Optimize for learning. Go for high impact, low popularity (challenging) projects.</p>
+		<div class="layer">
+			<p>Optimize for learning. Go for high impact, low popularity (challenging) projects.</p>
+		</div>
 	</div>
 
 </div>
