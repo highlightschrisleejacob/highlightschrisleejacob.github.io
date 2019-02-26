@@ -56,6 +56,9 @@
 		text-align: left;
 		background-color: #007aff;
 	}
+	#fp-nav ul li a span, .fp-slidesNav ul li a span {
+		background-color: white;
+	}
 	.section video {
 		position: absolute;
 		right: 0;
@@ -114,7 +117,7 @@
 <body>
 
 <div id="fullpage">
-	<div class="section" 
+	<div id="section1" class="section" 
 		data-coub=""
 		data-source="https://brianbalfour.com/essays/learn-growth-marketing"
 		data-source-avatar="https://pbs.twimg.com/profile_images/660904484210651136/pJuH8XkK_400x400.jpg"
@@ -123,7 +126,7 @@
 			<h1>7 Principles To Mastering Growth Marketing</h1>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section2" class="section" 
 		data-coub="https://coub.com/view/1ocqvv"
 		data-source=""
 		data-source-avatar=""
@@ -142,7 +145,7 @@
 			<h2>1.<br>Generalist or Specialist?</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section3" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -151,7 +154,7 @@
 			<p>Master the Fundamentals: Data Analysis, Quantitative Modeling, User Psychology, Storytelling.</p>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section4" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -161,7 +164,7 @@
 		</div>
 	</div>
 	
-	<div class="section" 
+	<div id="section5" class="section" 
 		data-coub="https://coub.com/view/1ocsom"
 		data-source=""
 		data-source-avatar=""
@@ -180,7 +183,7 @@
 			<h2>2.<br>Choosing What You Work On</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section6" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -190,7 +193,7 @@
 		</div>
 	</div>
 
-	<div class="section"
+	<div id="section7" class="section"
 		data-coub="https://coub.com/view/1ocu9m"
 		data-source=""
 		data-source-avatar=""
@@ -209,7 +212,7 @@
 			<h2>3.<br>Keep One Foot in the Known</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section8" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -219,7 +222,7 @@
 		</div>
 	</div>
 	
-	<div class="section" 
+	<div id="section9" class="section" 
 		data-coub="https://coub.com/view/1ocvn4"
 		data-source=""
 		data-source-avatar=""
@@ -238,7 +241,7 @@
 			<h2>4.<br>Accomplishments Over Credentials</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section10" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -248,7 +251,7 @@
 		</div>
 	</div>
 		
-	<div class="section" 
+	<div id="section11" class="section" 
 		data-coub="https://coub.com/view/1ocytw"
 		data-source=""
 		data-source-avatar=""
@@ -267,7 +270,7 @@
 			<h2>5.<br>Build a Platform</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section12" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -277,7 +280,7 @@
 		</div>
 	</div>
 		
-	<div class="section" 
+	<div id="section13" class="section" 
 		data-coub="https://coub.com/view/1oczqi"
 		data-source=""
 		data-source-avatar=""
@@ -296,7 +299,7 @@
 			<h2>6.<br>Get A Coach</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section14" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -306,7 +309,7 @@
 		</div>
 	</div>
 		
-	<div class="section" 
+	<div id="section15" class="section" 
 		data-coub="https://coub.com/view/1od364"
 		data-source=""
 		data-source-avatar=""
@@ -325,7 +328,7 @@
 			<h2>7.<br>How to be Proactive vs Reactive</h2>
 		</div>
 	</div>
-	<div class="section" 
+	<div id="section16" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -335,7 +338,7 @@
 		</div>
 	</div>
 		
-	<div class="section" 
+	<div id="section17" class="section" 
 		data-coub=""
 		data-source=""
 		data-source-avatar=""
@@ -363,6 +366,7 @@
 	navigationPosition: 'right',
 	scrollingSpeed: 200,
 	scrollBar: true,
+	autoScrolling:false,
         verticalCentered: true,
 	keyboardScrolling: true,
 	animateAnchor: true,
