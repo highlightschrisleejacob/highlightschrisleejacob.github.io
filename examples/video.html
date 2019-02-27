@@ -422,7 +422,7 @@
 		function resetMedia(destiny){
 		    console.log("reset " + destiny);
 			
-		    var panel = getSlideOrSection(destiny);
+		    var panel = $(destiny.item); // getSlideOrSection(destiny);
 
 		    //stopping HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
