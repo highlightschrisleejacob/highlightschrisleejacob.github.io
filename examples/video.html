@@ -363,6 +363,24 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		var ACTIVE =                'active';
+		var ACTIVE_SEL =            '.' + ACTIVE;
+		var SLIDE =                 'fp-slide';
+		var SLIDE_SEL =             '.' + SLIDE;
+		var SLIDE_ACTIVE_SEL =      SLIDE_SEL + ACTIVE_SEL;
+		
+		/**
+		* Gets the active slide (or section) for the given section
+		*/
+		function getSlideOrSection(destiny){
+		    var slide = $(SLIDE_ACTIVE_SEL, destiny);
+		    if( slide.length ) {
+			destiny = slide[0];
+		    }
+
+		    return destiny;
+		}
+		
 		/**
 		* Plays video and audio elements.
 		*/
