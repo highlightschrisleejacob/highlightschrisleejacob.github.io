@@ -372,6 +372,7 @@
 		/**
 		* Gets the active slide (or section) for the given section
 		*/
+		/*
 		function getSlideOrSection(destiny){
 		    var slide = $(SLIDE_ACTIVE_SEL, destiny);
 		    if( slide.length ) {
@@ -380,12 +381,13 @@
 
 		    return destiny;
 		}
+		*/
 		
 		/**
 		* Plays video and audio elements.
 		*/
 		function playMedia(destiny){
-		    var panel = getSlideOrSection(destiny);
+		    var panel = $(destiny.item); // getSlideOrSection(destiny);
 
 		    //playing HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
@@ -419,9 +421,7 @@
 		/**
 		* Resets video and audio elements.
 		*/
-		function resetMedia(destiny){
-		    console.log("reset " + destiny);
-			
+		function resetMedia(destiny){			
 		    var panel = $(destiny.item); // getSlideOrSection(destiny);
 
 		    //stopping HTML5 media elements
@@ -458,10 +458,13 @@
 			recordHistory: true,
 			
 			onLeave: function(origin, destination, direction){
-				console.log("leaving " + origin);
 				resetMedia(origin);
 			}
 		});
+		
+		$('video').on('click', function(){
+			this.paused ? this.play() : this.pause();
+		})
 		
 		//methods
 		//$.fn.fullpage.setAllowScrolling(false);
