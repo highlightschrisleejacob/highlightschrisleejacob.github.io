@@ -363,19 +363,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var myFullpage = $('#fullpage').fullpage({
-			scrollingSpeed: 400,
-			scrollBar: true,
-			verticalCentered: true,
-			keyboardScrolling: true,
-			animateAnchor: true,
-			recordHistory: true,
-			
-			onLeave: function(origin, destination, direction){
-				console.log("leaving " + origin);
-			}
-		});
-
 		/**
 		* Plays video and audio elements.
 		*/
@@ -443,6 +430,20 @@
 			}
 		    });
 		}
+		
+		var myFullpage = $('#fullpage').fullpage({
+			scrollingSpeed: 400,
+			scrollBar: true,
+			verticalCentered: true,
+			keyboardScrolling: true,
+			animateAnchor: true,
+			recordHistory: true,
+			
+			onLeave: function(origin, destination, direction){
+				console.log("leaving " + origin);
+				resetMedia(origin);
+			}
+		});
 		
 		//methods
 		//$.fn.fullpage.setAllowScrolling(false);
