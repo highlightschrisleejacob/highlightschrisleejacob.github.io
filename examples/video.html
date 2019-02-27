@@ -388,14 +388,14 @@
 		    var panel = getSlideOrSection(destiny);
 
 		    //playing HTML5 media elements
-		    $('video, audio', panel).forEach(function(element){
+		    $('video, audio', panel).each(function(i, element){
 			if( element.hasAttribute('data-autoplay') && typeof element.play === 'function' ) {
 			    element.play();
 			}
 		    });
 
 		    //youtube videos
-		    $('iframe[src*="youtube.com/embed/"]', panel).forEach(function(element){
+		    $('iframe[src*="youtube.com/embed/"]', panel).each(function(i, element){
 			if ( element.hasAttribute('data-autoplay') ){
 			    playYoutube(element);
 			}
@@ -425,7 +425,7 @@
 		    var panel = getSlideOrSection(destiny);
 
 		    //stopping HTML5 media elements
-		    $('video, audio', panel).forEach(function(element){
+		    $('video, audio', panel).each(function(i, element){
 			if( !element.hasAttribute('data-keepplaying') && typeof element.pause === 'function' ) {
 			    element.currentTime = 0;
 			    element.pause();
@@ -433,7 +433,7 @@
 		    });
 
 		    //youtube videos
-		    $('iframe[src*="youtube.com/embed/"]', panel).forEach(function(element){
+		    $('iframe[src*="youtube.com/embed/"]', panel).each(function(i, element){
 			if( /youtube\.com\/embed\//.test(element.getAttribute('src')) && !element.hasAttribute('data-keepplaying')){
 				// reload the youtube iframe to set playback to the begining
 				element.src = element.getAttribute('src');
