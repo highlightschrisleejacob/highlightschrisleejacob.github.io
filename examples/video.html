@@ -106,6 +106,21 @@
 	video::-webkit-media-controls {
 	  display:none !important;
 	}
+		
+	#audiocontrol {
+		position: absolute;
+		bottom: 20px;
+		left: 20px;
+	}
+		
+	#audio {
+		display: none;
+	}
+		
+	#mute {
+		padding: 0.5em;
+	}
+		
 	</style>
 
     <!--[if IE]>
@@ -116,16 +131,20 @@
 </head>
 <body>
 	
-<audio 
-       loop
-       id="player" 
-       src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_looped_audio/2f1322d499d/1f488772c1c36c0873706/med_1550249372_med.mp3"
-></audio>
-<div> 
-  <button onclick="document.getElementById('player').play()">Play</button> 
-  <button onclick="document.getElementById('player').pause()">Pause</button> 
-  <button onclick="document.getElementById('player').volume += 0.1">Vol +</button> 
-  <button onclick="document.getElementById('player').volume -= 0.1">Vol -</button> 
+<div id="audiocontrol"> 
+	<!-- universal audio player for all slides/sections -->
+	<audio 
+	       loop
+	       id="audio" 
+	       src=""
+	></audio>
+	<button id="mute">Mute</button>
+	<!--
+	  <button onclick="document.getElementById('audioplayer').play()">Play</button> 
+	  <button onclick="document.getElementById('audioplayer').pause()">Pause</button> 
+	  <button onclick="document.getElementById('audioplayer').volume += 0.1">Vol +</button> 
+	  <button onclick="document.getElementById('audioplayer').volume -= 0.1">Vol -</button> 
+	-->
 </div>
 	
 <div id="fullpage">
@@ -135,7 +154,7 @@
 		data-source-avatar="https://pbs.twimg.com/profile_images/660904484210651136/pJuH8XkK_400x400.jpg"
 	>
 		<div class="layer">
-			<h1>7 Principles To Mastering Growth Marketing!!</h1>
+			<h1>7 Principles To Mastering Growth Marketing!!!</h1>
 		</div>
 	</div>
 	<div id="section2" class="section" 
@@ -150,10 +169,9 @@
 			src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_file/f6e7ad8814a/772d4cb64a33d4d6b3d9f/gifv_1550249371_252728805_gifv.mp4"
 		></video>
     		<audio 
-			loop
+			loop data-autoplay
 			src="https://coubsecure-s.akamaihd.net/get/b201/p/coub/simple/cw_looped_audio/2f1322d499d/1f488772c1c36c0873706/med_1550249372_med.mp3"
 		></audio>
-		<button>Mute</button>
 		<div class="layer">
 			<h2>1.<br>Generalist or Specialist?</h2>
 		</div>
@@ -384,6 +402,7 @@
 		var SLIDE =                 'fp-slide';
 		var SLIDE_SEL =             '.' + SLIDE;
 		var SLIDE_ACTIVE_SEL =      SLIDE_SEL + ACTIVE_SEL;
+		var $AUDIO =                $('#audio');               
 		
 		/**
 		* Gets the active slide (or section) for the given section
@@ -406,7 +425,14 @@
 		    //playing HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
 			if( element.hasAttribute('data-autoplay') && typeof element.play === 'function' ) {
-			    element.play();
+				if(element.tagName === 'AUDIO'){
+					$AUDIO.attr('src', element.src);
+					if($AUDIO[0] && !$AUDIO[0].muted) {
+						$AUDIO[0].play();
+					}
+				} else {
+					element.play();
+				}
 			}
 		    });
 
@@ -441,8 +467,15 @@
 		    //stopping HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
 			if( !element.hasAttribute('data-keepplaying') && typeof element.pause === 'function' ) {
-			    element.currentTime = 0;
-			    element.pause();
+				if(element.tagName === 'AUDIO'){
+					$AUDIO.attr('src', element.src);
+					if($AUDIO[0] && !$AUDIO[0].muted) {
+						$AUDIO[0].pause();
+					}
+				} else {
+					element.currentTime = 0;
+					element.pause();
+				}
 			}
 		    });
 
@@ -480,7 +513,25 @@
 			var $this = $(this);
 			var destiny = $this.closest(SECTION_SEL);
 			this.paused ? playMedia(destiny) : resetMedia(destiny);
-		})
+		});
+		
+		$('#mute').on('click', function(){
+			var $this = $(this);
+			var destiny = $(SECTION_ACTIVE_SEL);
+			var audioEl = $AUDIO[0];
+			if(audioEl){
+				if(audioEl.muted){
+					audioEl.muted = false;
+					resetMedia(destiny);
+					playMedia(destiny);
+					
+				} else {
+					audioEl.muted = true;
+					resetMedia(destiny);
+					playMedia(destiny);
+				}
+			}
+		});
 		
 		//methods
 		//$.fn.fullpage.setAllowScrolling(false);
