@@ -123,7 +123,7 @@
 		data-source-avatar="https://pbs.twimg.com/profile_images/660904484210651136/pJuH8XkK_400x400.jpg"
 	>
 		<div class="layer">
-			<h1>7 Principles To Mastering Growth Marketing</h1>
+			<h1>7 Principles To Mastering Growth Marketing!</h1>
 		</div>
 	</div>
 	<div id="section2" class="section" 
@@ -365,6 +365,9 @@
 	$(document).ready(function() {
 		var ACTIVE =                'active';
 		var ACTIVE_SEL =            '.' + ACTIVE;
+		var SECTION =               'fp-section';
+		var SECTION_SEL =           '.' + SECTION;
+		var SECTION_ACTIVE_SEL =    SECTION_SEL + ACTIVE_SEL;
 		var SLIDE =                 'fp-slide';
 		var SLIDE_SEL =             '.' + SLIDE;
 		var SLIDE_ACTIVE_SEL =      SLIDE_SEL + ACTIVE_SEL;
@@ -372,7 +375,6 @@
 		/**
 		* Gets the active slide (or section) for the given section
 		*/
-		/*
 		function getSlideOrSection(destiny){
 		    var slide = $(SLIDE_ACTIVE_SEL, destiny);
 		    if( slide.length ) {
@@ -381,13 +383,12 @@
 
 		    return destiny;
 		}
-		*/
 		
 		/**
 		* Plays video and audio elements.
 		*/
 		function playMedia(destiny){
-		    var panel = $(destiny.item); // getSlideOrSection(destiny);
+		    var panel = getSlideOrSection(destiny);
 
 		    //playing HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
@@ -422,7 +423,7 @@
 		* Resets video and audio elements.
 		*/
 		function resetMedia(destiny){			
-		    var panel = $(destiny.item); // getSlideOrSection(destiny);
+		    var panel = getSlideOrSection(destiny);
 
 		    //stopping HTML5 media elements
 		    $('video, audio', panel).each(function(i, element){
@@ -458,7 +459,7 @@
 			recordHistory: true,
 			
 			onLeave: function(origin, destination, direction){
-				resetMedia(origin);
+				resetMedia(origin.item);
 			}
 		});
 		
