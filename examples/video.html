@@ -123,7 +123,7 @@
 		data-source-avatar="https://pbs.twimg.com/profile_images/660904484210651136/pJuH8XkK_400x400.jpg"
 	>
 		<div class="layer">
-			<h1>7 Principles To Mastering Growth Marketing!</h1>
+			<h1>7 Principles To Mastering Growth Marketing!!</h1>
 		</div>
 	</div>
 	<div id="section2" class="section" 
@@ -464,7 +464,9 @@
 		});
 		
 		$('video').on('click', function(){
-			this.paused ? this.play() : this.pause();
+			var $this = $(this);
+			var destiny = $this.closest(SECTION_SEL);
+			this.paused ? playMedia(destiny) : resetMedia(destiny);
 		})
 		
 		//methods
